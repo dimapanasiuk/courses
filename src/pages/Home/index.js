@@ -1,3 +1,5 @@
+/* eslint-disable*/
+
 import { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
 import { Pagination, Card  } from 'antd';
