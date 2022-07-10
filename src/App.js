@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-function App() {
+import Haeder from './components/Header';
+import Home from './pages/Home'
+import Characters from './pages/Characters';
+import Character from './pages/Character';
+import NotFound from './pages/NotFound'
+
+import 'antd/dist/antd.css';
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Haeder/>
+      <Routes>
+        <Route path="/" element={ <Home />} />
+        <Route path="characters" element={ <Characters />} />
+        <Route path="characters/:characterId" element={<Character />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
